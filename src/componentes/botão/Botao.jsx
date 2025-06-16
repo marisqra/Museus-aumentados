@@ -6,11 +6,14 @@ export default function Botao({
     className,
     divClassName,
     text = "FILTROS",
+    onClick,
 }) {
     return (
-        <div className={`bot-o ${fill} ${cor} ${className || ""}`}>
-            <div className={`FILTROS ${divClassName || ""}`}>{text}</div>
+        <div
+            className={`button-container ${fill} ${cor} ${className || ""}`}
+            onClick={onClick}
+        >
+            <div className={`button-text ${divClassName || ""}`}>{text}</div>
         </div>
     );
 }
-
