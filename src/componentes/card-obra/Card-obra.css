@@ -1,69 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&display=swap');
-
-.frame {
+.card-obra {
     width: 100%;
     position: relative;
-    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
-    text-align: left;
-    font-size: 14px;
-    color: #fff;
     font-family: 'Source Code Pro', monospace;
+    color: #fff;
+    font-size: 14px;
 }
 
-.div {
+.imagem {
     width: 338px;
     height: 461px;
     border-radius: 16px;
+    background-color: #ccc;
+    object-fit: cover;
     overflow: hidden;
     flex-shrink: 0;
-    object-fit: cover;
-    background-color: #ccc;
-    /* você pode trocar por uma imagem ou cor */
 }
 
-.div-2 {
+.info-obra {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
-    gap: 67px;
+    margin-top: 12px;
+    gap: 54px;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.text-wrapper {
+.card-obra:hover .info-obra {
+    opacity: 1;
+}
+
+.titulo-obra {
+    padding-left: 8px;
     font-weight: 500;
     font-size: 16px;
     font-family: 'Albert Sans', sans-serif;
-    color: #FCFAFB;
 }
 
-.div-3 {
+.tags {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
     gap: 5px;
     font-size: 9.38px;
-    color: #fafffa;
     font-family: 'Albert Sans', sans-serif;
-}
-
-.boto {
-    border-radius: 10.72px;
-    border: 1.3px solid #fafffa;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 6px 12.1px;
-}
-
-.bot-o-instance {
-    font-size: 9.38px;
-    font-family: 'Albert Sans', sans-serif;
-    color: inherit;
 }

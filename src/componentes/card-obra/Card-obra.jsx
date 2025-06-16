@@ -1,35 +1,35 @@
-import Botao from "../botão/Botao";
-import "./Card-obra.css"
+import Tag from "../tag/tag";
+import "./Card-obra.css";
 
 export default function CardObra() {
     return (
-        <div className="frame">
-            <div className="div" />
+        <div className="card-obra">
+            <div className="imagem" />
 
-            <div className="div-2">
-                <div className="text-wrapper">Nome da obra</div>
+            <div className="info-obra">
+                <h3 className="titulo-obra">Nome da obra</h3>
 
-                <div className="div-3">
-                    <Botao
-                        className="boto"
+                <div className="tags">
+                    <Tag
+                        className="tag"
                         cor="branco"
-                        divClassName="bot-o-instance"
+                        divClassName="tag-text"
                         fill="empty"
-                        text="TAG"
+                        text="TAG 1"
                     />
-                    <Botao
-                        className="boto"
+                    <Tag
+                        className="tag"
                         cor="branco"
-                        divClassName="bot-o-instance"
+                        divClassName="tag-text"
                         fill="empty"
-                        text="TAG"
+                        text="TAG 2"
                     />
-                    <Botao
-                        className="boto"
+                    <Tag
+                        className="tag"
                         cor="branco"
-                        divClassName="bot-o-instance"
+                        divClassName="tag-text"
                         fill="empty"
-                        text="TAG"
+                        text="TAG 3"
                     />
                 </div>
             </div>
