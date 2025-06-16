@@ -1,0 +1,18 @@
+.tag-container {
+    border-radius: 10.72px;
+    border: 1.3px solid #fafffa;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12.1px;
+    cursor: default;
+}
+
+.tag-text {
+    font-size: 9.38px;
+    font-family: 'Albert Sans', sans-serif;
+    color: #fafffa;
+    font-weight: 600;
+}
