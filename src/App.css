@@ -1,20 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&display=swap');
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
 body {
   background-color: #121212; 
-  color: white;
+  color: white; 
 }
+
+.hero-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-inline: 50px;
+}
+
+.hero-section img {
+  padding-right: 50px;
+}
+
+.hero-section div {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+}
+
 
 h1 {
     font-family: 'Oswald', sans-serif;
     font-size: 65px;
-    padding-left: 50px;
+    margin-bottom: 16px;
+    margin-top: 100px;
 }
 
 p {
     font-family: 'Albert Sans', sans-serif;
     font-size: 17px;
-    padding-left: 50px;
-
+    margin-bottom: 56px;
 }
 
 .card-container {
@@ -23,4 +47,13 @@ p {
   gap: 24px;
   padding: 40px;
   justify-items: center;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-section img{
+  margin-bottom: -8px;
 }
