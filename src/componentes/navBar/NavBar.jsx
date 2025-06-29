@@ -1,17 +1,24 @@
-import "./NavBar.css"
+import "./NavBar.css";
 
-export default function NavBar (){
-    return (
+export default function NavBar({ tipo }) {
+  // Definindo os links para cada tipo de usuário
+  const links = {
+    adm: ["Galeria", "Museus", "Administração"],
+    visitante: ["Sobre o projeto", "Explore a galeria", "Museus"]
+  };
 
-        <div className="navbar">
-            <div className="frame">
-                <div className="text-wrapper">Sobre o projeto</div>
+  // Pega os links conforme o tipo; padrão para visitante
+  const itens = links[tipo] || links.visitante;
 
-                <div className="text-wrapper">Explore a galeria</div>
-
-                <div className="text-wrapper">Museus</div>
-            </div>
-        </div>
-
-    )
+  return (
+    <div className="navbar">
+      <div className="frame">
+        {itens.map((item, index) => (
+          <div key={index} className="text-wrapper">
+            {item}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
