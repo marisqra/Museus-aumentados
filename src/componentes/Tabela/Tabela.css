@@ -1,0 +1,41 @@
+.tabela-usuarios {
+  width: 100%;
+  max-width: 1200px;
+  margin: 30px auto;
+  margin-bottom: 80px;
+  font-family: 'Albert Sans', sans-serif;
+  border-collapse: collapse;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.tabela-usuarios th,
+.tabela-usuarios td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  color: #484848;
+  font-weight: normal;
+}
+
+.tabela-usuarios th {
+  background-color: #ffffff;
+  font-weight: 600;
+}
+
+.tabela-usuarios tbody tr {
+  background-color: #fafafa;
+}
+
+.tabela-usuarios .coluna-remover {
+  text-align: center;
+  width: 60px;
+}
+
+.tabela-usuarios .botao-remover {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: #666;
+}
