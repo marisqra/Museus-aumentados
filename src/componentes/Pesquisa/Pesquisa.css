@@ -1,0 +1,31 @@
+.container-pesquisa {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 32px;
+    margin-left: 80px;
+}
+
+.campo-pesquisa {
+    display: flex;    
+    align-items: center;    
+    gap: 8px;               
+    border-bottom: 2px solid #ffffff;
+    flex: 1 1 300px;
+}
+
+.input-pesquisa {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+}
+
+.icone-pesquisa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
