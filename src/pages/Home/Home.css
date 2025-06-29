@@ -1,0 +1,33 @@
+.hero-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-inline: 50px;
+}
+
+.hero-section img {
+  padding-right: 50px;
+}
+
+.hero-section div {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 40px;
+  justify-items: center;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-section img{
+  margin-bottom: -8px;
+}
