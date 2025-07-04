@@ -1,19 +1,25 @@
 import "./Botao.css";
 
 export default function Botao({
-    cor,
-    fill,
-    className,
-    divClassName,
-    text = "FILTROS",
-    onClick,
+  cor = "#121212",
+  texto = "FILTROS",
+  onClick,
+  preenchido = false,
+  className = "",
 }) {
-    return (
-        <div
-            className={`button-container ${fill} ${cor} ${className || ""}`}
-            onClick={onClick}
-        >
-            <div className={`button-text ${divClassName || ""}`}>{text}</div>
-        </div>
-    );
+  const estiloBotao = {
+    borderColor: cor,
+    backgroundColor: preenchido ? cor : "transparent",
+    color: preenchido ? "#ffffff" : cor,
+  };
+
+  return (
+    <button
+      className={`botao-base ${className}`}
+      style={estiloBotao}
+      onClick={onClick}
+    >
+      {texto}
+    </button>
+  );
 }
