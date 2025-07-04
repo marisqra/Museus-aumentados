@@ -13,7 +13,10 @@ function Home() {
           <h1>Explore a Galeria</h1>
           <p>Explore o acervo de forma diferente. Cada tag é um convite à descoberta,
             experimente combinações e veja a galeria se transformar.</p>
-          <Botao />
+          <Botao
+            cor="#ffffff"
+            property1="filtro"
+            text="FILTROS" />
         </div>
         <img src="public/assets/Homi.svg" />
       </section>
