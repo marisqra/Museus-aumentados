@@ -1,50 +1,14 @@
 {
   "perfis": [
     {
-      "id": "5a37",
-      "nome": "yuri foda",
-      "email": "matue@gmail.com",
-      "permissoes": [
-        "edição"
-      ],
-      "inicio": "2025-07-02"
+      "id": "6798",
+      "nome": "Mariana Siqueira",
+      "email": "marisqra@gmail.com"
     },
     {
-      "id": "5b9e",
+      "id": "23b0",
       "nome": "luizin fernandin",
-      "email": "luizetesfernandetes@gmail.com",
-      "permissoes": [
-        "cadastro"
-      ],
-      "inicio": "2025-07-02"
-    },
-    {
-      "id": "5e7a",
-      "nome": "nikets rabelets",
-      "email": "nikets@gmail.com",
-      "permissoes": [
-        "edição",
-        "cadastro"
-      ],
-      "inicio": "2025-07-17"
-    },
-    {
-      "id": "abfe",
-      "nome": "gabriela siqueira",
-      "email": "lsiqueiragabi@gmail.com",
-      "permissoes": [
-        "cadastro"
-      ],
-      "inicio": "2025-07-02"
-    },
-    {
-      "id": "6fe8",
-      "nome": "kk",
-      "email": "leo@teste.com",
-      "permissoes": [
-        "edição"
-      ],
-      "inicio": "2025-07-31"
+      "email": "luizetesfernandetes@gmail.com"
     }
   ]
 }
