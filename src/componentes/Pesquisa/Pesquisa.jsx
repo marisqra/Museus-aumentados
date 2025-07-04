@@ -1,29 +1,28 @@
 import "./Pesquisa.css";
 import Botao from "../../componentes/botão/Botao";
-import { MdSearch } from "react-icons/md";  // Importa o ícone de busca do Material Design
+import { MdSearch } from "react-icons/md";
 
-export default function Pesquisa() {
+export default function Pesquisa({ termo, onBuscar, onCadastrar }) {
     return (
         <div className="container-pesquisa">
             <div className="campo-pesquisa">
                 <span className="icone-pesquisa">
-                    <MdSearch size={20} color="#fffff" />
+                    <MdSearch size={20} color="#ffffff" />
                 </span>
                 <input
                     type="text"
                     className="input-pesquisa"
-                    placeholder="Pesquise por nome, email ou permissão do usuário."
+                    placeholder="Pesquise por nome ou email do usuário"
+                    value={termo}
+                    onChange={(e) => onBuscar(e.target.value)}
                 />
             </div>
+
             <Botao
                 className="botao-pesquisa"
-                property1="filtro"
-                text="CADASTRAR NOVO PERFIL"
-            />
-            <Botao
-                className="botao-pesquisa"
-                property1="filtro"
-                text="FILTRO"
+                cor="#ffffff"
+                texto="CADASTRAR NOVO PERFIL"
+                onClick={onCadastrar}
             />
         </div>
     );
