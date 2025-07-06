@@ -1,5 +1,5 @@
 import "./Pesquisa.css";
-import Botao from "../Botão/Botao";
+import Botao from "../botao/Botao";
 import { MdSearch } from "react-icons/md";
 
 export default function Pesquisa({
