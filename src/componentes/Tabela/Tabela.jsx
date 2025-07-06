@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Tabela.css";
 import { FaTrash } from "react-icons/fa";
-import ModalConfirmacao from "../Modal/Modal";
+import ModalConfirmacao from "../ModalRemover/Modal";
 
 export default function TabelaUsuarios({ perfis, setMensagem, aoRemoverPerfil }) {
   const [usuarioParaRemover, setUsuarioParaRemover] = useState(null);
