@@ -1,4 +1,4 @@
-.footer {
+.rodape {
   background-color: #9B1C31; /* vermelho escuro */
   color: white;
   padding: 32px 40px 16px;
@@ -6,14 +6,13 @@
   font-size: 14px;
 }
 
-.footer-content {
+.conteudo-rodape {
   display: flex;
   gap: 32px;
   align-items: flex-start;
-  justify-content: flex-start;
 }
 
-.footer-logo {
+.logo-rodape {
   width: 80px;
   height: 80px;
   background-color: #d9d9d9; /* cinza claro */
@@ -21,40 +20,29 @@
   flex-shrink: 0;
 }
 
-.footer-info {
+.info-rodape {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.footer-description {
+.descricao-rodape {
   font-weight: 600;
 }
 
-.footer-contact {
+.contato-rodape {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.footer-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-}
-
-.footer-icon {
-  color: white;
-}
-
-.footer-divider {
+.divisor-rodape {
   margin: 24px 0 12px;
   border: none;
   border-top: 1px solid #d9d9d9;
 }
 
-.footer-copy {
+.copy-rodape {
   font-size: 12px;
   opacity: 0.8;
 }

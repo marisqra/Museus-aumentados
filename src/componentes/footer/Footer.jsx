@@ -1,32 +1,25 @@
 import "./Footer.css";
 
-export default function Footer() {
-    return (
-        <footer className="footer">
-            <div className="footer-content">
-                <div className="footer-logo" />
+export default function Rodape() {
+  return (
+    <footer className="rodape">
+      <div className="conteudo-rodape">
+        <div className="logo-rodape"></div>
 
-                <div className="footer-info">
-                    <p className="footer-description">
-                        Para dúvidas, sugestões ou parcerias, entre em contato.
-                    </p>
+        <div className="info-rodape">
+          <p className="descricao-rodape">
+            Para dúvidas, sugestões ou parcerias, entre em contato.
+          </p>
 
-                    <div className="footer-contact">
-                        <div className="footer-item">
+          <div className="contato-rodape">
+            <span>jaovinei@gmail.com</span>
+            <span>(88) 40028922</span>
+          </div>
+        </div>
+      </div>
 
-                            <span>jaovinei@gmail.com</span>
-                        </div>
-                        <div className="footer-item">
-
-                            <span>(88) 40028922</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <hr className="footer-divider" />
-
-            <p className="footer-copy">©2025, All right reserved.</p>
-        </footer>
-    );
+      <hr className="divisor-rodape" />
+      <p className="copy-rodape">©2025, Todos os direitos reservados.</p>
+    </footer>
+  );
 }
