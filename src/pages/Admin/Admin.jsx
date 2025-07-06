@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import NavBar from "../../componentes/NavBar/NavBar";
 import Pesquisa from "../../componentes/Pesquisa/Pesquisa";
 import TabelaUsuarios from "../../componentes/Tabela/Tabela";
-import Footer from "../../componentes/footer/Footer";
-import ModalCadastroPerfil from "../../componentes/Cadastro/Cadastro";
+import Footer from "../../componentes/Footer/Footer";
+import ModalCadastroPerfil from "../../componentes/ModalPerfis/Cadastro";
 import { listarPerfis, criarPerfil } from "../../api/perfis";
 import "./Admin.css";
 
