@@ -1,41 +1,48 @@
-import "./Home.css"
-import Botao from "../../componentes/botão/Botao";
-import CardObra from "../../componentes/Card-obra/Card-obra";
-import Footer from "../../componentes/footer/Footer";
+import { useEffect, useState } from "react";
+import "./Home.css";
+import Botao from "../../componentes/Botão/Botao";
+import CardObra from "../../componentes/CardObra/CardObra";
+import Footer from "../../componentes/Footer/Footer";
 import NavBar from "../../componentes/NavBar/NavBar";
+import { listarObras } from "../../api/obras"; // certifique-se de importar isso corretamente
 
 function Home() {
+  const [obras, setObras] = useState([]);
+
+  useEffect(() => {
+    async function carregarObras() {
+      const dados = await listarObras();
+      setObras(dados);
+    }
+
+    carregarObras();
+  }, []);
+
   return (
     <>
-      <NavBar tipo={"visitante"} />
-      <section class="hero-section">
+      <NavBar tipo="visitante" />
+
+      <section className="hero-section">
         <div>
           <h1>Explore a Galeria</h1>
           <p>Explore o acervo de forma diferente. Cada tag é um convite à descoberta,
             experimente combinações e veja a galeria se transformar.</p>
-          <Botao
-            cor="#ffffff"
-            property1="filtro"
-            text="FILTROS" />
+          <Botao cor="#ffffff" property1="filtro" text="FILTROS" />
         </div>
-        <img src="public/assets/Homi.svg" />
+        <img src="/assets/Homi.svg" alt="Ilustração decorativa" />
       </section>
-      <section class="galery">
-        <div class="card-container">
-          <CardObra />
-          <CardObra />
-          <CardObra />
-          <CardObra />
-          <CardObra />
-          <CardObra />
+
+      <section className="galery">
+        <div className="card-container">
+          {obras.map((obra) => (
+            <CardObra key={obra.id} obra={obra} />
+          ))}
         </div>
       </section>
+
       <Footer />
-
-
-
     </>
-  )
+  );
 }
 
 export default Home;

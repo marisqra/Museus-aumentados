@@ -16,8 +16,8 @@ export default function Rodape() {
 
           <div className="contato-rodape">
             <div className="contato-item">
-              <MdEmail className="footer-icon" />
-              <span>jaovinei@gmail.com</span>
+               <MdEmail className="footer-icon" />
+               <span>jaovinei@gmail.com</span>
             </div>
             <div className="contato-item">
               <MdPhone className="footer-icon" />

@@ -1,0 +1,128 @@
+.modal-container {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-cadastro {
+  background-color: #ffffff;
+  width: 920px; /* Largura ideal confirmada */
+  
+  height: auto; /* A altura se ajusta ao conteúdo */
+  min-height: 500px; /* Mantém uma altura mínima */
+  max-height: 90vh; /* Limita a altura máxima a 90% da altura da viewport */
+  
+  border-radius: 16px;
+  /* Espaçamento: Reduzindo padding superior e inferior */
+  padding: 40px 80px 100px 80px; /* Top: 40px, Right: 80px, Bottom: 100px, Left: 80px */
+  
+  position: relative;
+  font-family: "Albert Sans", sans-serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  /* overflow-y: auto; */ /* Mantido REMOVIDO para evitar scrollbar interna, conforme seu pedido */
+  z-index: 10;
+}
+
+.modal-cadastro h2 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #121212;
+  margin-bottom: 16px;
+}
+
+.botao-fechar-modal {
+  z-index: 11;
+  position: absolute;
+  top: 14px;
+  right: 24px;
+  font-size: 28px;
+  font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #121212;
+}
+
+.abas-cadastro {
+  display: flex;
+  gap: 16px;
+  /* Reduzindo o margin-bottom */
+  margin-bottom: 20px; /* De 40px para 20px */
+}
+
+.abas-cadastro button {
+  font-size: 16px;
+  color: #121212;
+  width: 185px;
+  padding-bottom: 5px;
+  text-align: center;
+  background: none;
+  border: none;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+}
+
+.abas-cadastro button.ativo {
+  border-bottom: 1px solid currentColor;
+}
+
+.formulario-cadastro {
+  display: flex;
+  flex-wrap: wrap;
+  /* Reduzindo o gap vertical */
+  gap: 15px 40px; /* Vertical: 15px, Horizontal: 40px */
+  justify-content: space-between;
+  margin-bottom: 0; 
+}
+
+.campo-formulario {
+  display: flex;
+  flex-direction: column;
+  min-width: 360px;
+  flex-grow: 1;
+  max-width: calc(50% - 20px);
+}
+
+.campo-formulario label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #121212;
+}
+
+.campo-formulario input,
+.campo-formulario select,
+.campo-formulario textarea {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Albert Sans", sans-serif;
+}
+
+.campo-formulario textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.botoes-modal {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  position: absolute;
+  right: 80px;
+  bottom: 40px;
+}
+
+.mensagem-erro {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 16px;
+}

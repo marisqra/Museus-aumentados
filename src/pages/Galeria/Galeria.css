@@ -1,0 +1,60 @@
+.lista-obras {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    padding: 40px;
+    justify-items: center;
+}
+.hero-section-admin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* para alinhar verticalmente o h1 e a imagem */
+  padding-inline: 50px;
+}
+
+.mensagem-toast {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  background-color: #fff;
+  color: #121212;
+  font-family: 'Albert Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 9999;
+  animation: fadeInOut 3s ease-in-out;
+}
+
+.toast-fechar {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #121212;
+  padding: 0;
+  line-height: 1;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
