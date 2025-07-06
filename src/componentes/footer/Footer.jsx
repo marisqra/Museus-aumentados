@@ -1,4 +1,5 @@
 import "./Footer.css";
+import { MdEmail, MdPhone } from "react-icons/md";
 
 export default function Rodape() {
   return (
@@ -12,8 +13,14 @@ export default function Rodape() {
           </p>
 
           <div className="contato-rodape">
-            <span>jaovinei@gmail.com</span>
-            <span>(88) 40028922</span>
+            <div className="contato-item">
+               <MdEmail className="footer-icon" />
+               <span>jaovinei@gmail.com</span>
+            </div>
+            <div className="contato-item">
+              <MdPhone className="footer-icon" />
+              <span>(88) 40028922</span>
+            </div>
           </div>
         </div>
       </div>
