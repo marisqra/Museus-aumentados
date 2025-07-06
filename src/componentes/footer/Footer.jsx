@@ -1,3 +1,5 @@
+//nico colocou o icone mas bugou no meu 
+
 import "./Footer.css";
 import { MdEmail, MdPhone } from "react-icons/md";
 
