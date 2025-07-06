@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-inline: 50px;
+  padding-inline: 81px;
 }
 
 .hero-section img {
@@ -19,7 +19,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
-  padding: 40px;
+  padding: 171px;
   justify-items: center;
 }
 

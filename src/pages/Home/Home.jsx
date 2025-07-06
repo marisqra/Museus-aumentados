@@ -10,7 +10,7 @@ function Home() {
       <NavBar tipo={"visitante"} />
       <section class="hero-section">
         <div>
-          <h1>Explore a Galeria</h1>
+          <h1>EXPLORE A <br/> GALERIA</h1>
           <p>Explore o acervo de forma diferente. Cada tag é um convite à descoberta,
             experimente combinações e veja a galeria se transformar.</p>
           <Botao
