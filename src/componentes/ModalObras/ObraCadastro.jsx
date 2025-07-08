@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Botao from "../Botão/Botao";
+import Botao from "../botao/Botao";
 import { listarObras } from "../../api/obras";
 import "./ObraCadastro.css";
 
@@ -22,13 +22,14 @@ export default function ModalCadastroObra({ onSalvar, onFechar }) {
   const [obrasOriginais, setObrasOriginais] = useState([]);
   const [erro, setErro] = useState("");
 
+  //quando muda pra releitura
   useEffect(() => {
     async function carregarObrasOriginais() {
       const todas = await listarObras();
       setObrasOriginais(todas.filter((obra) => obra.tipo === "original"));
     }
     if (tipo === "releitura") carregarObrasOriginais();
-  }, [tipo]);
+  }, [tipo]); //cada releitura é relacionada a uma obra, né? ent isso carrega o slect com as obras originais cadastradas
 
   const handleChange = (campo) => (e) => {
     setForm((f) => ({ ...f, [campo]: e.target.value }));

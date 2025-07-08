@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Cadastro.css";
-import Botao from "../Botão/Botao";
+import Botao from "../botao/Botao";
 
 export default function Cadastro({ onSalvar, onFechar }) {
   const [nome, setNome] = useState("");
