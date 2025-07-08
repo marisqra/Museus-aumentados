@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import Masonry from 'react-masonry-css';
 import "./Home.css";
-import Botao from "../../componentes/Botão/Botao";
+import Botao from "../../componentes/botao/Botao";
 import CardObra from "../../componentes/CardObra/CardObra";
 import Footer from "../../componentes/Footer/Footer";
 import NavBar from "../../componentes/NavBar/NavBar";
@@ -18,6 +19,12 @@ function Home() {
     carregarObras();
   }, []);
 
+  const breakpointColumnsObj = {
+    default: 3,
+    900: 2,
+    600: 1
+  };
+
   return (
     <>
       <NavBar tipo="visitante" />
@@ -33,11 +40,15 @@ function Home() {
       </section>
 
       <section className="galery">
-        <div className="card-container">
+        <Masonry
+          breakpointCols={breakpointColumnsObj}
+          className="card-container"
+          columnClassName="card-masonry-column"
+        >
           {obras.map((obra) => (
             <CardObra key={obra.id} obra={obra} />
           ))}
-        </div>
+        </Masonry>
       </section>
 
       <Footer />

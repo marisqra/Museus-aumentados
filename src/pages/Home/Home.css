@@ -15,13 +15,7 @@
   max-width: 600px;
 }
 
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  padding: 40px;
-  justify-items: center;
-}
+
 
 .footer-section {
   display: flex;
@@ -30,4 +24,18 @@
 
 .footer-section img{
   margin-bottom: -8px;
+}
+
+.card-container {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+}
+.card-masonry-column {
+  padding-left: 1rem; /* gutter size */
+  background-clip: padding-box;
+}
+.card-obra {
+  margin-bottom: 1.5rem;
 }

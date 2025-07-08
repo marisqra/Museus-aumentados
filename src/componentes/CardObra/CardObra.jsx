@@ -1,4 +1,4 @@
-import Tag from "../Tag/tag";
+import Tag from "../tag/tag";
 import "./CardObra.css";
 
 export default function CardObra({ obra, children }) {
