@@ -1,22 +1,24 @@
-const API_URL = "http://localhost:3000/perfis";
+// src/api/perfis.js
+import { auth, database } from "./firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { ref, set } from "firebase/database";
 
-export async function listarPerfis() {
-  const resposta = await fetch(API_URL);
-  return await resposta.json();
-}
+// Cria usuário no Auth e salva perfil no Realtime Database
+export async function criarPerfil({ nome, email }) {
+  const senhaPadrao = "senha123"; // ou gere uma aleatória
 
-export async function criarPerfil(novoPerfil) {
-  const resposta = await fetch(API_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(novoPerfil)
+  // 1. Cria o usuário no Firebase Auth
+  const credenciais = await createUserWithEmailAndPassword(auth, email, senhaPadrao);
+  const uid = credenciais.user.uid;
+
+  // 2. Salva os dados no Realtime Database
+  const perfilRef = ref(database, `perfis/${uid}`);
+  await set(perfilRef, {
+    nome,
+    email,
+    permissoes: ["editor"] // ou "adm", dependendo da lógica
   });
 
-  if (!resposta.ok) {
-    throw new Error("Erro ao criar perfil");
-  }
-
-  return await resposta.json();
+  // Retorna os dados usados
+  return { id: uid, nome, email, permissoes: ["editor"] };
 }
