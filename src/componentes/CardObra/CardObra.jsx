@@ -2,32 +2,38 @@ import Tag from "../tag/tag";
 import "./CardObra.css";
 
 export default function CardObra({ obra, children }) {
-    return (
-        <div className="card-obra">
-            <div className="imagem">
-                {obra.imagem && (
-                    <img src={obra.imagem} alt={`Imagem de ${obra.titulo}`} />
-                )}
-            </div>
+  const tagsArray = Array.isArray(obra.tags)
+    ? obra.tags
+    : typeof obra.tags === "string"
+    ? obra.tags.split(",").map((tag) => tag.trim())
+    : [];
 
-            <div className="info-obra">
-                <h3 className="titulo-obra">{obra.titulo}</h3>
+  return (
+    <div className="card-obra">
+      <div className="imagem">
+        {obra.imagem && (
+          <img src={obra.imagem} alt={`Imagem de ${obra.titulo}`} />
+        )}
+      </div>
 
-                <div className="tags">
-                    {obra.tags?.split(",").map((tag, index) => (
-                        <Tag
-                            key={index}
-                            className="tag"
-                            cor="branco"
-                            divClassName="tag-text"
-                            fill="empty"
-                            text={tag.trim()}
-                        />
-                    ))}
-                </div>
+      <div className="info-obra">
+        <h3 className="titulo-obra">{obra.titulo}</h3>
 
-                {children && <div className="acoes">{children}</div>}
-            </div>
+        <div className="tags">
+          {tagsArray.map((tag, index) => (
+            <Tag
+              key={index}
+              className="tag"
+              cor="branco"
+              divClassName="tag-text"
+              fill="empty"
+              text={tag}
+            />
+          ))}
         </div>
-    );
+
+        {children && <div className="acoes">{children}</div>}
+      </div>
+    </div>
+  );
 }

@@ -2,7 +2,6 @@
     width: 320px;
     border-radius: 12px;
     overflow: hidden;
-    margin-bottom: 1.5rem;
     break-inside: avoid;
     font-family: 'Source Code Pro', monospace;
     color: #ffff;
@@ -29,7 +28,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 12px;
+    margin-top: 4px;
     gap: 54px;
     width: 100%;
     opacity: 0;
