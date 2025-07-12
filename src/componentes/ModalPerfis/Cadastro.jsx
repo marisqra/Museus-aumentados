@@ -40,7 +40,7 @@ export default function Cadastro({ onSalvar, onFechar }) {
 
         <div className="formulario-cadastro">
           <div className="campo-formulario">
-            <label htmlFor="nome">Nome</label>
+            <label htmlFor="nome">Nome*</label>
             <input
               id="nome"
               type="text"
@@ -50,7 +50,7 @@ export default function Cadastro({ onSalvar, onFechar }) {
           </div>
 
           <div className="campo-formulario">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">Email*</label>
             <input
               id="email"
               type="email"
