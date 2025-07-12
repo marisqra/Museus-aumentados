@@ -15,8 +15,6 @@
   max-width: 600px;
 }
 
-
-
 .footer-section {
   display: flex;
   flex-direction: column;
@@ -33,9 +31,9 @@
   width: fit-content;
 }
 .card-masonry-column {
-  padding-left: 1rem; /* gutter size */
+  padding-left: 10px;
   background-clip: padding-box;
 }
 .card-obra {
-  margin-bottom: 1.5rem;
+  margin-bottom: 8px;
 }

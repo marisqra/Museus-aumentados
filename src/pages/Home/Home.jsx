@@ -5,7 +5,7 @@ import Botao from "../../componentes/botao/Botao";
 import CardObra from "../../componentes/CardObra/CardObra";
 import Footer from "../../componentes/Footer/Footer";
 import NavBar from "../../componentes/NavBar/NavBar";
-import { listarObras } from "../../api/obras"; // certifique-se de importar isso corretamente
+import { listarObras } from "../../api/obras";
 
 function Home() {
   const [obras, setObras] = useState([]);
@@ -31,7 +31,7 @@ function Home() {
 
       <section className="hero-section">
         <div>
-          <h1>EXPLORE A <br/> GALERIA</h1>
+          <h1>EXPLORE A GALERIA</h1>
           <p>Explore o acervo de forma diferente. Cada tag é um convite à descoberta,
             experimente combinações e veja a galeria se transformar.</p>
           <Botao cor="#ffffff" property1="filtro" text="FILTROS" />
