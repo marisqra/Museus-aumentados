@@ -1,9 +1,12 @@
 .rodape {
-  background-color: #D0353F;
+  background-color: #9B1C31;
   color: white;
   padding: 32px 40px 16px;
   font-family: 'Albert Sans', sans-serif;
   font-size: 14px;
+  margin-top: 0;
+  padding-top: 0;
+  position: relative;
 }
 
 .conteudo-rodape {
@@ -14,12 +17,9 @@
   padding-left: 50px;
 }
 
-.logo-rodape {
+.logo-rodape img {
   width: 120px;
   height: 120px;
-  background-color: #d9d9d9;
-  border-radius: 4px;
-  flex-shrink: 0;
 }
 
 .info-rodape {
@@ -55,3 +55,19 @@
   opacity: 0.8;
   padding-left: 81px;
 }
+
+/* Remove margens e padding desnecessários da onda e do footer */
+.onda-rodape {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0; /* remove espaço extra em volta do SVG */
+  margin-bottom: 0; /* para garantir que não tenha espaço abaixo da onda */
+}
+
+.onda-rodape img {
+  display: block; /* tira espaço em linha */
+  width: 100%;
+  height: auto;
+  color: #D0353F;
+}
+
