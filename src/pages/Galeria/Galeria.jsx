@@ -4,8 +4,10 @@ import Pesquisa from "../../componentes/Pesquisa/Pesquisa";
 import Footer from "../../componentes/Footer/Footer";
 import CardObra from "../../componentes/CardObra/CardObra";
 import ModalCadastroObra from "../../componentes/ModalObras/ObraCadastro";
-import { listarObras, criarObra } from "../../api/obras";
-import "./Galeria.css"
+import { listarObras, criarObra, excluirObra } from "../../api/obras";
+import ModalConfirmacao from "../../componentes/ModalRemover/Modal";
+import Masonry from "react-masonry-css";
+import "./Galeria.css";
 
 export default function Galeria() {
   const [mensagem, setMensagem] = useState("");
@@ -14,6 +16,7 @@ export default function Galeria() {
   const [Original, setOriginal] = useState(null);
   const [obras, setObras] = useState([]);
   const [termoPesquisa, setTermoPesquisa] = useState("");
+  const [obraParaRemover, setObraParaRemover] = useState(null);
 
   useEffect(() => {
     async function carregarObras() {
@@ -23,21 +26,18 @@ export default function Galeria() {
     carregarObras();
   }, []);
 
-  // Abre modal para cadastrar obra original
   function modalOriginal() {
     setTipoCadastro("original");
     setOriginal(null);
     setModalAberto(true);
   }
 
-  // Abre modal para cadastrar releitura vinculada a obra original
   function modalReleitura(obraOriginal) {
     setTipoCadastro("releitura");
     setOriginal(obraOriginal);
     setModalAberto(true);
   }
 
-  // Função chamada ao salvar obra no modal
   async function cadastrarObra(novaObra) {
     try {
       await criarObra(novaObra);
@@ -50,7 +50,17 @@ export default function Galeria() {
     }
   }
 
-  // Filtra obras pelo termo de pesquisa (exemplo simples pelo título)
+  async function removerObra(id) {
+    try {
+      await excluirObra(id);
+      const dadosAtualizados = await listarObras();
+      setObras(dadosAtualizados);
+    } catch (error) {
+      console.error("Erro ao excluir obra:", error);
+    }
+  }
+
+
   const obrasFiltradas = obras.filter((obra) =>
     obra.titulo.toLowerCase().includes(termoPesquisa.toLowerCase())
   );
@@ -62,7 +72,11 @@ export default function Galeria() {
       {mensagem && (
         <div className="mensagem-toast" role="alert">
           {mensagem}
-          <button onClick={() => setMensagem("")} className="toast-fechar" aria-label="Fechar mensagem">
+          <button
+            onClick={() => setMensagem("")}
+            className="toast-fechar"
+            aria-label="Fechar mensagem"
+          >
             ×
           </button>
         </div>
@@ -81,14 +95,31 @@ export default function Galeria() {
         textoBotaoCadastrar="Cadastrar Nova Obra"
       />
 
-      <section className="lista-obras">
-        {obrasFiltradas.map((obra) => (
-          <CardObra key={obra.id} obra={obra}>
-            <button onClick={() => modalReleitura(obra)}>
-              Cadastrar Releitura
-            </button>
-          </CardObra>
-        ))}
+      <section className="card-container">
+        <Masonry
+          breakpointCols={{ default: 3, 900: 2, 600: 1 }}
+          className="card-container"
+          columnClassName="card-masonry-column"
+        >
+          {obrasFiltradas.map((obra) => (
+            <CardObra key={obra.id} obra={obra}>
+              <div className="botoes-card-obra">
+                <button
+                  className="botao-editar"
+                  onClick={() => modalReleitura(obra)}
+                >
+                  Editar
+                </button>
+                <button
+                  className="botao-excluir"
+                  onClick={() => setObraParaRemover(obra.id)}
+                >
+                  Excluir
+                </button>
+              </div>
+            </CardObra>
+          ))}
+        </Masonry>
       </section>
 
       {modalAberto && (
@@ -100,7 +131,18 @@ export default function Galeria() {
         />
       )}
 
-
+      {obraParaRemover && (
+        <ModalConfirmacao
+          onConfirmar={async () => {
+            await removerObra(obraParaRemover);
+            setObraParaRemover(null);
+          }}
+          onCancelar={() => setObraParaRemover(null)}
+          titulo="Deseja remover esta obra?"
+          texto="Depois da remoção, esta obra não aparecerá mais na galeria."
+          textoBotao="Remover obra"
+        />
+      )}
 
       <Footer />
     </>
