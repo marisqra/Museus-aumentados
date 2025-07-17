@@ -1,4 +1,4 @@
-.modal-container {
+.modalContainer {
   position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.4);
@@ -6,13 +6,13 @@
   justify-content: center;
   align-items: center;
   z-index: 9999;
+  overflow: auto;
 }
 
-.modal-cadastro {
+.modalCadastro {
   background-color: #fff;
   width: 1000px;
-  min-height: 500px;
-  max-height: 95vh;
+  height: auto;
   padding: 40px 40px 100px 40px;
   border-radius: 16px;
   position: relative;
@@ -25,14 +25,14 @@
 
 }
 
-.modal-cadastro h2 {
+.modalCadastro h2 {
   font-size: 32px;
   font-weight: bold;
   color: #121212;
   margin-bottom: 16px;
 }
 
-.botao-fechar-modal {
+.botaoFecharModal {
   z-index: 11;
   position: absolute;
   top: 14px;
@@ -45,13 +45,13 @@
   color: #121212;
 }
 
-.abas-cadastro {
+.abasCadastro {
   display: flex;
   gap: 16px;
   margin-bottom: 20px;
 }
 
-.abas-cadastro button {
+.abasCadastro button {
   font-size: 16px;
   color: #121212;
   width: 185px;
@@ -63,11 +63,11 @@
   cursor: pointer;
 }
 
-.abas-cadastro button.ativo {
+.abasCadastro button.ativo {
   border-bottom: 1px solid currentColor;
 }
 
-.formulario-cadastro {
+.formularioCadastro {
   display: flex;
   flex-direction: row;
   gap: 32px;
@@ -75,7 +75,7 @@
   align-items: flex-start;
 }
 
-.imagem-cadastro {
+.imagemCadastro {
   width: 220px;
   height: 220px;
   background: #f6f6f6;
@@ -87,14 +87,14 @@
   justify-content: center;
 }
 
-.campos-cadastro {
+.camposCadastro {
   display: flex;
   flex-wrap: wrap;
   gap: 20px 32px;
   flex: 1;
 }
 
-.campo-formulario {
+.campoFormulario {
   min-width: 220px;
   max-width: calc(50% - 16px);
   flex: 1 1 220px;
@@ -102,15 +102,15 @@
   flex-direction: column;
 }
 
-.campo-formulario label {
+.campoFormulario label {
   font-size: 14px;
   margin-bottom: 6px;
   color: #121212;
 }
 
-.campo-formulario input,
-.campo-formulario select,
-.campo-formulario textarea {
+.campoFormulario input,
+.campoFormulario select,
+.campoFormulario textarea {
   background-color: #f0f0f0;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -122,12 +122,12 @@
   font-family: "Albert Sans", sans-serif;
 }
 
-.campo-formulario textarea {
+.campoFormulario textarea {
   resize: vertical;
   min-height: 80px;
 }
 
-.botoes-modal {
+.botoesModal {
   display: flex;
   justify-content: flex-end;
   gap: 8px;
@@ -136,7 +136,7 @@
   bottom: 32px;
 }
 
-.mensagem-erro {
+.mensagemErro {
   color: red;
   font-size: 14px;
   margin-bottom: 16px;
