@@ -1,10 +1,10 @@
 .container-pesquisa {
   display: flex;
   gap: 16px;
-  width: 100%;
-  max-width: 1200px;
+  width: auto;
   margin-top: 32px;
   margin-left: 80px;
+  margin-right: 80px;
 }
 
 .campo-pesquisa {
@@ -22,10 +22,4 @@
   outline: none;
   color: #ffffff;
   font-size: 16px;
-}
-
-.icone-pesquisa {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }

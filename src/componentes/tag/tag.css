@@ -11,8 +11,14 @@
 }
 
 .tag-text {
-    font-size: 9.38px;
+    font-size: 10px;
     font-family: 'Albert Sans', sans-serif;
-    color: #fafffa;
     font-weight: 600;
 }
+
+.tag-container.selecionada {
+  background-color: #ffffff; 
+  border: 2px solid #000000; 
+  color: #000000;  
+}
+

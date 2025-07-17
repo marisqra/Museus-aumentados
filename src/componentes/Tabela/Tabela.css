@@ -1,6 +1,6 @@
 .tabela-usuarios {
-  width: 100%;
-  max-width: 1200px;
+  width: auto;
+  min-width: 1200px;
   margin: 30px auto 100px;
   font-family: 'Albert Sans', sans-serif;
   border-collapse: collapse;

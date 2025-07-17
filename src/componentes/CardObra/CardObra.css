@@ -1,62 +1,46 @@
 .card-obra {
-    width: 320px;
-    border-radius: 12px;
-    overflow: hidden;
-    break-inside: avoid;
-    font-family: 'Source Code Pro', monospace;
-    color: #ffff;
-    font-size: 14px;
-    display: flex;
-    flex-direction: column;
+  width: 320px;
+  font-family: 'Albert Sans', sans-serif;
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
 }
 
 .imagem {
-    width: 100%;
-    overflow: hidden;
-    border-radius: 0;
+  width: 100%;
+  overflow: hidden;
 }
 
-.card-obra .imagem img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-    border-radius: 8px;
+.imagem img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .info-obra {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 4px;
-    gap: 54px;
-    width: 100%;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 4px;
+  gap: 24px;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .card-obra:hover .info-obra {
-    opacity: 1;
-}
-
-.titulo-obra {
-    padding-left: 8px;
-    font-weight: 500;
-    font-size: 16px;
-    font-family: 'Albert Sans', sans-serif;
+  opacity: 1;
 }
 
 .tags {
-    display: flex;
-    gap: 5px;
-    font-size: 9.38px;
-    font-family: 'Albert Sans', sans-serif;
+  display: flex;
+  gap: 5px;
 }
 
 .card-container {
   column-count: 3;
-  column-gap: 1rem;
-  padding: 1rem;
+  column-gap: 16px;
+  padding: 16px;
 }
-
-

@@ -12,7 +12,7 @@ export default function Pesquisa({
   return (
     <div className="container-pesquisa">
       <div className="campo-pesquisa">
-        <span className="icone-pesquisa">
+        <span>
           <MdSearch size={20} color="#ffffff" />
         </span>
         <input
@@ -25,7 +25,6 @@ export default function Pesquisa({
       </div>
 
       <Botao
-        className="botao-pesquisa"
         cor="#ffffff"
         texto={textoBotaoCadastrar}
         onClick={onCadastrar}

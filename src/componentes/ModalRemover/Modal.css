@@ -14,7 +14,6 @@
     background: #fff;
     padding: 24px 32px;
     border-radius: 8px;
-    text-align: center;
     width: 350px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
@@ -38,16 +37,7 @@
 .modal-botoes {
     display: flex;
     gap: 12px;
-    justify-content: center;
-}
-
-.modal-botoes button {
-    padding: 8px 20px;
-    border: none;
-    border-radius: 999px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.2s;
+    margin-left: 150px;
 }
 
 .modal-botoes button:first-child {

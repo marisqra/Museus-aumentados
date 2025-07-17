@@ -20,12 +20,10 @@ export default function CardObra({ obra, children }) {
         <h3 className="titulo-obra">{obra.titulo}</h3>
 
         <div className="tags">
-          {tagsArray.map((tag, index) => (
+          {tagsArray.map((tag) => (
             <Tag
-              key={index}
-              className="tag"
+              key={tag}
               cor="branco"
-              divClassName="tag-text"
               fill="empty"
               text={tag}
             />

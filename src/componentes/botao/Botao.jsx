@@ -1,16 +1,20 @@
 import "./Botao.css";
 
 export default function Botao({
-  cor = "#121212",
+  cor = "#ffffff", // cor principal (borda e texto no modo normal)
   texto = "FILTROS",
   onClick,
   preenchido = false,
   className = "",
+  mostrarFechar = false,
+  onFechar = null,
 }) {
   const estiloBotao = {
-    borderColor: cor,
-    backgroundColor: preenchido ? cor : "transparent",
-    color: preenchido ? "#ffffff" : cor,
+    borderColor: preenchido ? "#000000" : cor,
+    backgroundColor: preenchido ? "#ffffff" : "transparent",
+    color: preenchido ? "#000000" : cor,
+    position: "relative",
+    paddingRight: mostrarFechar ? 32 : undefined,
   };
 
   return (
@@ -20,6 +24,17 @@ export default function Botao({
       onClick={onClick}
     >
       {texto}
+      {mostrarFechar && (
+        <span
+          className="icone-fechar"
+          onClick={(e) => {
+            e.stopPropagation();
+            if (onFechar) onFechar();
+          }}
+        >
+          ✕
+        </span>
+      )}
     </button>
   );
 }
