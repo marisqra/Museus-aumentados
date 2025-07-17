@@ -1,47 +1,31 @@
-const API_BASE_URL = "http://localhost:3000";
+import { database } from "./firebase";
+import { ref, set, push, get, remove } from "firebase/database";
+
+
+export async function criarObra(obra) {
+  const novaObraRef = push(ref(database, "obras"));
+  await set(novaObraRef, obra);
+  return { id: novaObraRef.key, ...obra };
+}
+
 
 export async function listarObras() {
-  const response = await fetch(`${API_BASE_URL}/obras`);
-  if (!response.ok) {
-    throw new Error("Erro ao listar obras.");
-  }
-  return response.json();
+  const snapshot = await get(ref(database, "obras"));
+  const data = snapshot.val();
+
+  if (!data) return [];
+  return Object.entries(data).map(([id, obra]) => ({ id, ...obra }));
 }
 
-export async function criarObra(novaObra) {
-  const response = await fetch(`${API_BASE_URL}/obras`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(novaObra),
-  });
-  if (!response.ok) {
-    throw new Error("Erro ao criar obra.");
-  }
-  return response.json();
+export async function excluirObra(id) {
+  await remove(ref(database, `obras/${id}`));
 }
 
-export async function removerObra(id) {
-  const response = await fetch(`${API_BASE_URL}/obras/${id}`, {
-    method: "DELETE",
-  });
-  if (!response.ok) {
-    throw new Error("Erro ao remover obra.");
-  }
-  return;
+
+export async function editarObra(obra) {
+  if (!obra.id) throw new Error("Obra sem ID para edição.");
+  const { id, ...dados } = obra;
+  const obraRef = ref(database, `obras/${id}`);
+  await set(obraRef, dados);
 }
 
-export async function atualizarObra(id, obraAtualizada) {
-  const response = await fetch(`${API_BASE_URL}/obras/${id}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(obraAtualizada),
-  });
-  if (!response.ok) {
-    throw new Error("Erro ao atualizar obra.");
-  }
-  return response.json();
-}

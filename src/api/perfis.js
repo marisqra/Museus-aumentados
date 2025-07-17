@@ -1,24 +1,54 @@
-// src/api/perfis.js
 import { auth, database } from "./firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { ref, set } from "firebase/database";
+import { ref, set, onValue, remove } from "firebase/database";
 
-// Cria usuário no Auth e salva perfil no Realtime Database
+
 export async function criarPerfil({ nome, email }) {
-  const senhaPadrao = "senha123"; // ou gere uma aleatória
+  const senhaPadrao = "senha123";
 
-  // 1. Cria o usuário no Firebase Auth
   const credenciais = await createUserWithEmailAndPassword(auth, email, senhaPadrao);
   const uid = credenciais.user.uid;
 
-  // 2. Salva os dados no Realtime Database
   const perfilRef = ref(database, `perfis/${uid}`);
   await set(perfilRef, {
     nome,
     email,
-    permissoes: ["editor"] // ou "adm", dependendo da lógica
+    permissoes: ["editor"]
   });
 
-  // Retorna os dados usados
   return { id: uid, nome, email, permissoes: ["editor"] };
+}
+
+
+export async function listarPerfis() {
+  return new Promise((resolve, reject) => {
+    const perfisRef = ref(database, "perfis");
+
+    onValue(
+      perfisRef,
+      (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+          const lista = Object.entries(data).map(([id, perfil]) => ({
+            id,
+            ...perfil,
+          }));
+          resolve(lista);
+        } else {
+          resolve([]);
+        }
+      },
+      (error) => {
+        reject(error);
+      }
+    );
+  });
+  
+}
+
+export async function removerPerfil(id) {
+  if (!id) throw new Error("ID do perfil não fornecido");
+
+  const perfilRef = ref(database, `perfis/${id}`);
+  await remove(perfilRef);
 }
