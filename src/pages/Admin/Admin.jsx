@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import NavBar from "../../componentes/NavBar/NavBar";
 import Pesquisa from "../../componentes/Pesquisa/Pesquisa";
 import TabelaUsuarios from "../../componentes/Tabela/Tabela";
-import Footer from "../../componentes/Footer/Footer";
+import Footer from "../../componentes/footer/Footer";
 import ModalCadastroPerfil from "../../componentes/ModalPerfis/Cadastro";
-import { listarPerfis, criarPerfil } from "../../api/perfis";
+import { listarPerfis, criarPerfil, removerPerfil } from "../../api/perfis";
 import "./Admin.css";
 
 function Admin() {
@@ -63,9 +63,9 @@ function Admin() {
     }
   };
 
-  const removerPerfil = async (usuario) => {
+  const removerPerfilHandler = async (usuario) => {
     try {
-      await fetch(`http://localhost:3000/perfis/${usuario.id}`, { method: "DELETE" });
+      await removerPerfil(usuario.id);
       setPerfis(prevPerfis => prevPerfis.filter((p) => p.id !== usuario.id));
       setMensagem("Perfil removido com sucesso!");
       setTimeout(() => setMensagem(""), 3000);
@@ -89,8 +89,9 @@ function Admin() {
       )}
 
       <section className="hero-section-admin">
-        <h1>Gerenciar Perfis</h1>
+        <h1>GERENCIAR PERFIS</h1>
         <img src="/Ilustrações/Star 5.svg" alt="Estrela decorativa" />
+        <img src="/Ilustrações/Star 11.svg" alt="Estrela decorativa" />
       </section>
 
       <Pesquisa
@@ -103,7 +104,7 @@ function Admin() {
       <TabelaUsuarios
         perfis={perfisFiltrados}
         setMensagem={setMensagem}
-        aoRemoverPerfil={removerPerfil}
+        aoRemoverPerfil={removerPerfilHandler}
       />
 
       {modalAberto && (
@@ -113,7 +114,10 @@ function Admin() {
         />
       )}
 
-      <Footer />
+      <Footer
+            corFundo="#D0353F"
+            onda="/Ilustrações/OndaRosa.svg"
+            />
     </>
   );
 }

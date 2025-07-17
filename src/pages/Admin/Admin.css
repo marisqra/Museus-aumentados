@@ -1,8 +1,23 @@
 .hero-section-admin {
+  position: relative;
   display: flex;
-  justify-content: space-between;
-  align-items: center; /* para alinhar verticalmente o h1 e a imagem */
+  justify-content: flex-start;
+  align-items: center;
   padding-inline: 50px;
+}
+
+.hero-section-admin img {
+  position: absolute;
+  right: 215px;
+  top:  90px;
+  z-index: 3;
+  height: 150px;
+}
+
+.hero-section-admin img:nth-child(3) {
+  top: 20px;   
+  right: 90px;
+  z-index: 2;
 }
 
 .mensagem-toast {
