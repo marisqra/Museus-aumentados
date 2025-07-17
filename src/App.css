@@ -22,3 +22,16 @@ p {
   font-size: 17px;
   margin-bottom: 56px;
 }
+
+button {
+   padding: 10px 20px;
+  width: fit-content;
+  cursor: pointer;
+  border: 2px solid;
+  border-radius: 16px;
+  background-color: transparent;
+  font-family: "Albert Sans", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
