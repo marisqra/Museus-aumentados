@@ -1,0 +1,36 @@
+
+.lista-museus {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.card-horizontal {
+  border: 2px solid #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  color: #ffffff;
+  background-color: transparent;
+  max-width: 1150px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.card-horizontal h2 {
+  font-size: 20px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-family: Albert Sans;
+}
+
+.card-horizontal p {
+  font-size: 15px;
+  color: #cccccc;
+  margin-bottom: 16px;
+  font-family: Albert Sans;
+}
+
+.botoes-card {
+  display: flex;
+  gap: 12px;
+}
