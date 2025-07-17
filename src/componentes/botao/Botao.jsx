@@ -1,7 +1,7 @@
 import "./Botao.css";
 
 export default function Botao({
-  cor = "#ffffff", // cor principal (borda e texto no modo normal)
+  cor = "#ffffff",
   texto = "FILTROS",
   onClick,
   preenchido = false,

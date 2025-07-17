@@ -26,20 +26,19 @@ export default function Cadastro({ onSalvar, onFechar }) {
   };
 
   return (
-    <div className="modal-container">
-      <div className="modal-cadastro">
+    <div className="modalContainerPerfil">
+      <div className="modalCadastroPerfil">
         <button
-          className="botao-fechar-modal"
+          className="botaoFecharModal"
           onClick={onFechar}
           aria-label="Fechar modal"
         >
           ×
         </button>
         <h2>Cadastrar Perfil</h2>
-        <h3>Informações do perfil</h3>
-
-        <div className="formulario-cadastro">
-          <div className="campo-formulario">
+        <h3 className="subtituloModalPerfil">Informações do perfil</h3> 
+        <div className="formularioCadastroPerfil">
+          <div className="campoFormularioPerfil">
             <label htmlFor="nome">Nome*</label>
             <input
               id="nome"
@@ -49,7 +48,7 @@ export default function Cadastro({ onSalvar, onFechar }) {
             />
           </div>
 
-          <div className="campo-formulario">
+          <div className="campoFormularioPerfil">
             <label htmlFor="email">Email*</label>
             <input
               id="email"
@@ -60,10 +59,10 @@ export default function Cadastro({ onSalvar, onFechar }) {
           </div>
         </div>
 
-        {erro && <p className="mensagem-erro">{erro}</p>}
+        {erro && <p className="mensagemErro">{erro}</p>}
 
-        <div className="botoes-modal">
-          <Botao texto="Cancelar" onClick={onFechar} />
+        <div className="botoesModal">
+          <Botao texto="Cancelar" preenchido onClick={onFechar} />
           <Botao texto="Confirmar Cadastro" preenchido onClick={enviar} />
         </div>
       </div>

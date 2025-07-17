@@ -1,4 +1,4 @@
-.modal-container {
+.modalContainerPerfil {
     position: fixed;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.4);
@@ -8,25 +8,25 @@
     z-index: 999;
 }
 
-.modal-cadastro {
+.modalCadastroPerfil {
     background-color: #ffffff;
-    width: 800px;
-    height: 400px;
+    width: auto;
+    height: 300px;
     border-radius: 16px;
-    padding: 60px 80px;
+    padding: 30px;
     position: relative;
     font-family: "Albert Sans", sans-serif;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
-.modal-cadastro h2 {
+.modalCadastroPerfil h2 {
     font-size: 32px;
     font-weight: bold;
     color: #121212;
     margin-bottom: 16px;
 }
 
-.modal-cadastro h3 {
+.modalCadastroPerfil .subtituloModalPerfil {
     font-size: 16px;
     font-weight: normal;
     color: #121212;
@@ -37,19 +37,7 @@
     border-bottom: 1px solid currentColor;
 }
 
-.botao-fechar-modal {
-    position: absolute;
-    top: 14px;
-    right: 24px;
-    font-size: 28px;
-    font-weight: bold;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #121212;
-}
-
-.formulario-cadastro {
+.formularioCadastroPerfil {
     display: flex;
     flex-wrap: wrap;
     gap: 20px 40px;
@@ -57,19 +45,19 @@
     margin-bottom: 80px;
 }
 
-.campo-formulario {
+.campoFormularioPerfil { 
     display: flex;
     flex-direction: column;
     min-width: 360px;
 }
 
-.campo-formulario label {
+.campoFormularioPerfil label {
     font-size: 14px;
     margin-bottom: 6px;
     color: #121212;
 }
 
-.campo-formulario input {
+.campoFormularioPerfil input {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -79,34 +67,3 @@
     width: 100%;
     box-sizing: border-box;
 }
-
-.botoes-modal {
-    display: flex;
-    justify-content: flex-end;
-    gap: 8px;
-    position: absolute;
-    bottom: 40px;
-    right: 80px;
-}
-
-.checkbox-group {
-  display: flex;
-  gap: 20px;
-  margin-top: 8px;
-}
-
-.checkbox-group label {
-  font-size: 14px;
-  color: #121212;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-}
-
-.mensagem-erro {
-  color: red;
-  font-size: 14px;
-  margin-bottom: 16px;
-}
-
