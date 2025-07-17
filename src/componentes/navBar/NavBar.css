@@ -17,13 +17,14 @@
     justify-content: center;
 }
 
-.navbar .text-wrapper {
+.navbar .textWrapper {
     color: #FCFAFB;
     font-family: 'Albert Sans', sans-serif;
     font-size: 16px;
     font-weight: 400;
     white-space: nowrap;
     cursor: pointer;
+    text-decoration: none;
 }
 
 
