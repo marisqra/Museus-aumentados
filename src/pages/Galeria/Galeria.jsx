@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import NavBar from "../../componentes/NavBar/NavBar";
 import Pesquisa from "../../componentes/Pesquisa/Pesquisa";
-import Footer from "../../componentes/Footer/Footer";
+import Footer from "../../componentes/footer/Footer";
 import CardObra from "../../componentes/CardObra/CardObra";
 import ModalCadastroObra from "../../componentes/ModalObras/ObraCadastro";
-import { listarObras, criarObra, excluirObra } from "../../api/obras";
+import { listarObras, criarObra, excluirObra, editarObra } from "../../api/obras";
 import ModalConfirmacao from "../../componentes/ModalRemover/Modal";
 import Masonry from "react-masonry-css";
 import "./Galeria.css";
@@ -17,6 +17,7 @@ export default function Galeria() {
   const [obras, setObras] = useState([]);
   const [termoPesquisa, setTermoPesquisa] = useState("");
   const [obraParaRemover, setObraParaRemover] = useState(null);
+  const [obraEditando, setObraEditando] = useState(null);
 
   useEffect(() => {
     async function carregarObras() {
@@ -29,26 +30,44 @@ export default function Galeria() {
   function modalOriginal() {
     setTipoCadastro("original");
     setOriginal(null);
+    setObraEditando(null);
     setModalAberto(true);
   }
 
   function modalReleitura(obraOriginal) {
     setTipoCadastro("releitura");
     setOriginal(obraOriginal);
+    setObraEditando(null);
     setModalAberto(true);
   }
 
-  async function cadastrarObra(novaObra) {
+  function modalEditar(obra) {
+    setTipoCadastro(obra.tipo);
+    setObraEditando(obra);
+    setModalAberto(true);
+  }
+
+  async function salvarObra(dados) {
     try {
-      await criarObra(novaObra);
+      if (obraEditando) {
+        await editarObra({ ...obraEditando, ...dados });
+        setMensagem("Obra editada com sucesso!");
+      } else {
+        await criarObra(dados);
+        setMensagem("Cadastro concluído com sucesso!");
+      }
+
       const dadosAtualizados = await listarObras();
       setObras(dadosAtualizados);
       setModalAberto(false);
+      setObraEditando(null);
       setOriginal(null);
     } catch (error) {
-      console.error("Erro ao cadastrar obra:", error);
+      console.error("Erro ao salvar obra:", error);
+      setMensagem("Erro ao salvar obra. Tente novamente.");
     }
   }
+
 
   async function removerObra(id) {
     try {
@@ -59,7 +78,6 @@ export default function Galeria() {
       console.error("Erro ao excluir obra:", error);
     }
   }
-
 
   const obrasFiltradas = obras.filter((obra) =>
     obra.titulo.toLowerCase().includes(termoPesquisa.toLowerCase())
@@ -83,8 +101,9 @@ export default function Galeria() {
       )}
 
       <section className="hero-section-admin">
-        <h1>Gerenciar Galeria</h1>
-        <img src="/Ilustrações/Star 5.svg" alt="Estrela decorativa" />
+        <h1>GERENCIAR GALERIA</h1>
+        <img src="/Ilustrações/Star 11.svg" alt="Estrela decorativa" />
+        <img src="/Ilustrações/Star 12.svg" alt="Estrela decorativa" />
       </section>
 
       <Pesquisa
@@ -106,7 +125,7 @@ export default function Galeria() {
               <div className="botoes-card-obra">
                 <button
                   className="botao-editar"
-                  onClick={() => modalReleitura(obra)}
+                  onClick={() => modalEditar(obra)}
                 >
                   Editar
                 </button>
@@ -125,11 +144,18 @@ export default function Galeria() {
       {modalAberto && (
         <ModalCadastroObra
           tipo={tipoCadastro}
-          onSalvar={cadastrarObra}
-          onFechar={() => setModalAberto(false)}
+          setTipo={setTipoCadastro}
+          onSalvar={salvarObra}
+          onFechar={() => {
+            setModalAberto(false);
+            setObraEditando(null);
+            setOriginal(null);
+          }}
           originalId={Original ? Original.id : ""}
+          obraEditando={obraEditando}
         />
       )}
+
 
       {obraParaRemover && (
         <ModalConfirmacao
@@ -140,7 +166,7 @@ export default function Galeria() {
           onCancelar={() => setObraParaRemover(null)}
           titulo="Deseja remover esta obra?"
           texto="Depois da remoção, esta obra não aparecerá mais na galeria."
-          textoBotao="Remover obra"
+          textoBotao="Remover"
         />
       )}
 
